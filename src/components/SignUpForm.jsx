@@ -99,7 +99,7 @@ export default function SignUpForm() {
 
       if (data) {
         try {
-          if (data.meta?.name) {
+          if (data.meta?.name && pb.authStore.model?.name == "") {
             await pb.collection("users").update(data.record.id, {
               name: data.meta.name,
             });
