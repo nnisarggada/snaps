@@ -1,0 +1,19 @@
+---
+import "@styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>
+      {Astro.props.title || "SNAPS | Stock No-Attribution Public Snapshots"}
+    </title>
+  </head>
+  <body
+    class="bg-neutral-950 text-white overflow-x-hidden scroll-smooth custom-scrollbar"
+  >
+    <slot />
+  </body>
+</html>

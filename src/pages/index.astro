@@ -1,0 +1,12 @@
+---
+import Base from "@layouts/Base.astro";
+import NavBar from "@components/NavBar";
+import PhotoOfTheDay from "@components/PhotoOfTheDay.astro";
+import AllPhotos from "@components/AllPhotos";
+---
+
+<Base>
+  <NavBar client:only />
+  <PhotoOfTheDay />
+  <AllPhotos client:load />
+</Base>

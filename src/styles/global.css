@@ -1,0 +1,55 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #a855f7;
+  border-radius: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.loader-white {
+  --width: 5px;
+
+  border: var(--width) solid rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  border-top: var(--width) solid #fff;
+  height: 100%;
+  aspect-ratio: 1;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

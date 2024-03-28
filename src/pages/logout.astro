@@ -1,0 +1,25 @@
+---
+import Base from "@layouts/Base.astro";
+---
+
+<Base title="Logout | SNAPS">
+  <div class="w-full min-h-screen flex items-center justify-center p-8">
+    <p>
+      If you aren't logged out automatically, click <a
+        href="/logout"
+        class="text-purple-500 italic hover:underline">here</a
+      > to logout
+    </p>
+  </div>
+</Base>
+
+<script>
+  import pb from "@utils/pocketbase";
+
+  try {
+    pb.authStore.clear();
+  } catch (error) {
+    console.error(error);
+  }
+  window.location.href = "/";
+</script>

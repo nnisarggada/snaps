@@ -1,0 +1,38 @@
+---
+import pb, { getPhotoOfTheDay } from "@utils/pocketbase";
+const photoOfTheDay = await getPhotoOfTheDay();
+---
+
+{
+  photoOfTheDay && (
+    <div class="relative w-full h-[70vh] md:h-[75vh] lg:h-[80vh] rounded-b-3xl bg-neutral-800">
+      <img
+        src={`${pb.baseUrl}/api/files/photos/${photoOfTheDay.id}/${photoOfTheDay.file}`}
+        class="absolute inset-0 w-full h-full object-cover rounded-b-3xl"
+        alt="Photo of the day"
+      />
+      <div class="absolute inset-0 w-full h-full bg-gradient-to-b from-neutral-950 from-10% to-transparent to-[80%]">
+        <div class="w-full max-w-5xl mx-auto h-full flex flex-col gap-2 md:gap-4 py-4 px-6 md:px-8 md:py-12 lg:px-12 lg:py-16">
+          <h2 class="w-fit text-sm md:text-md lg:text-lg uppercase mb-2 md:mb-4">
+            Photo of the day
+          </h2>
+          <a
+            href={`/photos/${photoOfTheDay.id}`}
+            class="line-clamp-2 text-5xl md:text-6xl lg:text-7xl font-bold underline underline-offset-4 transition-all duration-500 ease-in-out origin-left hover:scale-110"
+          >
+            {photoOfTheDay.title}
+          </a>
+          <p class="line-clamp-1 text-md md:text-lg lg:text-xl">
+            By{" "}
+            <a
+              href={`/users/${photoOfTheDay.expand?.author.username}`}
+              class="text-purple-500 font-bold hover:underline"
+            >
+              {photoOfTheDay.expand?.author.name}
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
