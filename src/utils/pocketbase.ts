@@ -1,6 +1,6 @@
 import Pocketbase from "pocketbase";
 const pb = new Pocketbase("http://127.0.0.1:8090");
-// const pb = new pocketbase("https://snaps-app.nnisarg.in");
+// const pb = new Pocketbase("https://snaps-app.nnisarg.in");
 
 export default pb;
 
