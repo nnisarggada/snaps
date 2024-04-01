@@ -6,7 +6,7 @@ import AllPhotos from "@components/AllPhotos";
 ---
 
 <Base>
-  <NavBar client:only />
+  <NavBar searchTerm={undefined} client:only />
   <PhotoOfTheDay />
-  <AllPhotos client:load />
+  <AllPhotos searchTerm={undefined} client:only />
 </Base>

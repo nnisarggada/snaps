@@ -8,9 +8,9 @@
     "url": "https://github.com/nnisarggada/snaps"
   },
   "scripts": {
-    "dev": "astro dev & mkdir backend; cd backend && pocketbase serve",
+    "dev": "astro dev & cd backend && pocketbase serve",
     "build": "astro check && astro build",
-    "preview": "astro preview & mkdir backend; cd backend && pocketbase serve",
+    "preview": "astro preview & cd backend && pocketbase serve",
     "astro": "astro"
   },
   "dependencies": {
@@ -19,8 +19,8 @@
     "@astrojs/react": "^3.1.0",
     "@astrojs/tailwind": "^5.1.0",
     "@types/react": "^18.2.73",
-    "@types/react-dom": "^18.2.22",
-    "astro": "^4.5.10",
+    "@types/react-dom": "^18.2.23",
+    "astro": "^4.5.12",
     "pocketbase": "^0.21.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

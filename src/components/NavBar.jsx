@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import pb from "@utils/pocketbase";
-import { FaPlus, FaSearch, FaUser } from "react-icons/fa";
+import { FaArrowLeft, FaPlus, FaSearch, FaUser } from "react-icons/fa";
 
 function OptionsModal({ setShowOptionsModal }) {
   return (
@@ -46,7 +46,7 @@ function OptionsModal({ setShowOptionsModal }) {
   );
 }
 
-export default function NavBar() {
+export default function NavBar({ searchTerm }) {
   const [showOptionsModal, setShowOptionsModal] = useState(false);
 
   useEffect(() => {
@@ -61,18 +61,35 @@ export default function NavBar() {
     return (
       <nav className="w-full h-20 bg-neutral-950">
         <div className="w-full max-w-5xl mx-auto h-full flex items-center justify-between gap-2 p-4">
-          <div className="w-full flex items-center gap-2 bg-neutral-800 rounded-full px-4 py-2">
-            <input
-              type="text"
-              placeholder="Search"
-              className="w-full text-md bg-transparent p-1 outline-none"
-            />
-            <button
-              tabIndex={-1}
-              className="outline-none text-xl text-purple-500"
+          {searchTerm && (
+            <a
+              href="/"
+              className="h-full aspect-square text-2xl rounded-full bg-transparent grid place-items-center transition-all hover:drop-shadow-lg"
             >
-              <FaSearch />
-            </button>
+              <FaArrowLeft />
+            </a>
+          )}
+          <div className="w-full flex items-center gap-2 bg-neutral-800 rounded-full px-4 py-2">
+            <form action="/search" className="w-full flex items-center gap-2">
+              <input
+                type="text"
+                name="q"
+                placeholder="Search"
+                className="w-full text-md bg-transparent p-1 outline-none"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    console.log(e.target.value);
+                  }
+                }}
+              />
+              <button
+                type="submit"
+                tabIndex={-1}
+                className="outline-none text-xl text-purple-500"
+              >
+                <FaSearch />
+              </button>
+            </form>
           </div>
           <a
             href="/login"
@@ -97,18 +114,35 @@ export default function NavBar() {
   return (
     <nav className="w-full h-20 bg-neutral-950">
       <div className="w-full max-w-5xl mx-auto h-full flex items-center justify-between gap-2 p-4">
-        <div className="w-full flex items-center gap-2 bg-neutral-800 rounded-full px-4 py-2">
-          <input
-            type="text"
-            placeholder="Search"
-            className="w-full text-md bg-transparent p-1 outline-none"
-          />
-          <button
-            tabIndex={-1}
-            className="outline-none text-xl text-purple-500"
+        {searchTerm && (
+          <a
+            href="/"
+            className="h-full aspect-square text-2xl rounded-full bg-transparent grid place-items-center transition-all hover:drop-shadow-lg"
           >
-            <FaSearch />
-          </button>
+            <FaArrowLeft />
+          </a>
+        )}
+        <div className="w-full flex items-center gap-2 bg-neutral-800 rounded-full px-4 py-2">
+          <form action="/search" className="w-full flex items-center gap-2">
+            <input
+              type="text"
+              name="q"
+              placeholder="Search"
+              className="w-full text-md bg-transparent p-1 outline-none"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  console.log(e.target.value);
+                }
+              }}
+            />
+            <button
+              type="submit"
+              tabIndex={-1}
+              className="outline-none text-xl text-purple-500"
+            >
+              <FaSearch />
+            </button>
+          </form>
         </div>
         <a
           href="/add"

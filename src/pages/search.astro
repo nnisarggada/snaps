@@ -1,0 +1,18 @@
+---
+import Base from "@layouts/Base.astro";
+import NavBar from "@components/NavBar";
+import AllPhotos from "@components/AllPhotos";
+
+const searchTerm = Astro.url.searchParams.get("q");
+---
+
+<Base>
+  <NavBar searchTerm={searchTerm} client:only />
+  <AllPhotos searchTerm={searchTerm} client:only />
+</Base>
+
+<script define:vars={{ searchTerm }}>
+  if (!searchTerm) {
+    window.location.href = "/";
+  }
+</script>
