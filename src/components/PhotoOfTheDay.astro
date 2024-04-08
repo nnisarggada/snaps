@@ -3,6 +3,8 @@ import pb, { getPhotoOfTheDay } from "@utils/pocketbase";
 const photoOfTheDay = await getPhotoOfTheDay();
 ---
 
+{!photoOfTheDay && <div />}
+
 {
   photoOfTheDay && (
     <div class="relative w-full h-[70vh] md:h-[75vh] lg:h-[80vh] rounded-b-3xl bg-neutral-800">
